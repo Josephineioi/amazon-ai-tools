@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>亚马逊产品利润计算器</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Amazon Seller Tool</p>
+      <h1>亚马逊产品利润计算器</h1>
+      <p class="intro">输入产品售价、成本和费用，自动计算单个产品的总成本、利润、利润率和 ROI，适合跨境电商新手快速判断选品是否值得做。</p>
+    </section>
+
+    <section class="calculator" aria-label="亚马逊利润计算器">
+      <form class="input-panel" id="profitForm">
+        <h2>填写产品数据</h2>
+        <p class="hint">美元项目会按汇率换算成人民币后参与计算。</p>
+
+        <label>
+          <span>产品售价（美元）</span>
+          <input type="number" id="sellingPrice" min="0" step="0.01" value="29.99" />
+        </label>
+
+        <label>
+          <span>产品采购成本（人民币）</span>
+          <input type="number" id="purchaseCost" min="0" step="0.01" value="45" />
+        </label>
+
+        <label>
+          <span>国内物流费用（人民币）</span>
+          <input type="number" id="domesticShipping" min="0" step="0.01" value="5" />
+        </label>
+
+        <label>
+          <span>国际运费（人民币）</span>
+          <input type="number" id="internationalShipping" min="0" step="0.01" value="18" />
+        </label>
+
+        <label>
+          <span>亚马逊佣金比例（%）</span>
+          <input type="number" id="commissionRate" min="0" max="100" step="0.01" value="15" />
+        </label>
+
+        <label>
+          <span>FBA配送费用（美元）</span>
+          <input type="number" id="fbaFee" min="0" step="0.01" value="4.5" />
+        </label>
+
+        <label>
+          <span>广告费用（美元）</span>
+          <input type="number" id="adCost" min="0" step="0.01" value="3" />
+        </label>
+
+        <label>
+          <span>汇率（1美元 = 多少人民币）</span>
+          <input type="number" id="exchangeRate" min="0" step="0.0001" value="7.2" />
+        </label>
+
+        <button type="reset" id="resetButton">恢复示例数据</button>
+      </form>
+
+      <section class="result-panel">
+        <h2>计算结果</h2>
+        <div class="result-grid">
+          <article class="result-card">
+            <span>总成本</span>
+            <strong id="totalCost">¥0.00</strong>
+          </article>
+          <article class="result-card highlight">
+            <span>单个产品利润</span>
+            <strong id="profit">¥0.00</strong>
+          </article>
+          <article class="result-card">
+            <span>利润率</span>
+            <strong id="profitMargin">0.00%</strong>
+          </article>
+          <article class="result-card">
+            <span>ROI</span>
+            <strong id="roi">0.00%</strong>
+          </article>
+        </div>
+
+        <div class="explanation">
+          <h3>计算说明</h3>
+          <ul>
+            <li>销售收入 = 产品售价 × 汇率</li>
+            <li>亚马逊佣金 = 销售收入 × 佣金比例</li>
+            <li>总成本 = 采购成本 + 国内物流 + 国际运费 + 佣金 + FBA配送费 + 广告费</li>
+            <li>利润 = 销售收入 - 总成本</li>
+            <li>利润率 = 利润 ÷ 销售收入</li>
+            <li>ROI = 利润 ÷ 总成本</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
